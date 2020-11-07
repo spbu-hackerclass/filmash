@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from flask import g
 
 from films_repository import get_films_to_compare
@@ -18,9 +18,16 @@ def close_connection(exception):
 
 
 @app.route('/')
-def hello_world():
+def vs():
     films = get_films_to_compare()
     return render_template('vs.html', films=films)
+
+
+@app.route('/comparisons', methods=['POST'])
+def add_comparison():
+    win_id = int(request.form.get('win'))
+    lose_id = int(request.form.get('lose'))
+    return redirect(url_for('vs'))
 
 
 if __name__ == '__main__':

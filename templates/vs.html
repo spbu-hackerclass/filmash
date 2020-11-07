@@ -21,7 +21,13 @@
     <div class="row">
         <div class="col-sm-5">
             <div class="text-center">
-                <img src="static/posters/{{ films[0]['posterfile']}}" class="rounded" alt="{{ films[0]['filmname'] }}" style="height: 300px">
+                <form action="/comparisons" method="POST">
+                    <input name="win" value="{{ films[0]['id'] }}">
+                    <input name="lose" value="{{ films[1]['id'] }}">
+                    <button type="submit">Vote</button>
+                </form>
+                <img src="static/posters/{{ films[0]['posterfile'] }}" class="rounded" alt="{{ films[0]['filmname'] }}"
+                     style="height: 300px">
                 <p>{{ films[0]['filmname'] }}</p>
                 <p>{{ films[0]['filmdesc'] }}</p>
             </div>
@@ -31,7 +37,13 @@
         </div>
         <div class="col-sm-5">
             <div class="text-center">
-                <img src="static/posters/{{ films[1]['posterfile']}}" class="rounded" alt="{{ films[1]['filmname'] }}" style="height: 300px">
+                <form action="/comparisons" method="POST">
+                    <input name="win" value="{{ films[1]['id'] }}">
+                    <input name="lose" value="{{ films[0]['id'] }}">
+                    <button type="submit">Vote</button>
+                </form>
+                <img src="static/posters/{{ films[1]['posterfile'] }}" class="rounded" alt="{{ films[1]['filmname'] }}"
+                     style="height: 300px">
                 <p>{{ films[1]['filmname'] }}</p>
                 <p>{{ films[1]['filmdesc'] }}</p>
             </div>
