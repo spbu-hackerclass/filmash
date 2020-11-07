@@ -1,2 +1,4 @@
 /.idea/
 /venv/
+/films.db
+/static/posters/
