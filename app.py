@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask import g
 
 from Film import Film
-from films_repository import get_films_to_compare
+from films_repository import get_films_to_compare, save_comparison
 
 app = Flask(__name__)
 
@@ -30,6 +30,8 @@ def vs():
 def add_comparison():
     win_id = int(request.form.get('win'))
     lose_id = int(request.form.get('lose'))
+    save_comparison(win_id, lose_id)
+
     return redirect(url_for('vs'))
 
 
