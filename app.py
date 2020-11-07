@@ -47,3 +47,7 @@ def init_db_command():
 @app.route('/')
 def hello_world():
     return render_template('vs.html')
+
+
+if __name__ == '__main__':
+    app.run()
