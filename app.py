@@ -4,6 +4,8 @@
 from flask import Flask, render_template
 from flask import g
 
+from films_repository import get_films_to_compare
+
 app = Flask(__name__)
 
 
@@ -17,6 +19,7 @@ def close_connection(exception):
 
 @app.route('/')
 def hello_world():
+    films = get_films_to_compare()
     return render_template('vs.html')
 
 
