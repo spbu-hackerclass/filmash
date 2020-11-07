@@ -20,6 +20,11 @@ def query_db(query, args=(), one=False):
     return (rv[0] if rv else None) if one else rv
 
 
+def write_db(query, args=()):
+    cur = get_db().execute(query, args)
+    cur.close()
+
+
 def dict_factory(cursor, row):
     d = {}
     for idx, col in enumerate(cursor.description):
