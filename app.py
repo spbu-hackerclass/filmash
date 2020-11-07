@@ -20,7 +20,7 @@ def close_connection(exception):
 @app.route('/')
 def hello_world():
     films = get_films_to_compare()
-    return render_template('vs.html')
+    return render_template('vs.html', films=films)
 
 
 if __name__ == '__main__':

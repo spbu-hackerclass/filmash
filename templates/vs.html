@@ -17,21 +17,23 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-sm">
+        <div class="col-sm-5">
             <div class="text-center">
-                <img src="static/TheMatrix.jpg" class="rounded" alt="Матрица" style="height: 300px">
-                <p>Матрица</p>
+                <img src="static/posters/{{ films[0]['posterfile']}}" class="rounded" alt="{{ films[0]['filmname'] }}" style="height: 300px">
+                <p>{{ films[0]['filmname'] }}</p>
+                <p>{{ films[0]['filmdesc'] }}</p>
             </div>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-1">
             <p>VS</p>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-5">
             <div class="text-center">
-                <img src="static/TheMatrixReloaded.jpg" class="rounded" alt="Матрица" style="height: 300px">
-                <p>Матрица Перезагрузка</p>
+                <img src="static/posters/{{ films[1]['posterfile']}}" class="rounded" alt="{{ films[1]['filmname'] }}" style="height: 300px">
+                <p>{{ films[1]['filmname'] }}</p>
+                <p>{{ films[1]['filmdesc'] }}</p>
             </div>
         </div>
     </div>
