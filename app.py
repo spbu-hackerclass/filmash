@@ -28,7 +28,7 @@ def vs():
 @app.route('/rating')
 def rating():
     films: List[Film] = get_rating()
-    return render_template('rating.html', films=films)
+    return render_template('rating.html', enumerated_films=enumerate(films, start=1))
 
 
 @app.route('/comparisons', methods=['POST'])
