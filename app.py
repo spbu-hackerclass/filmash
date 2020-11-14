@@ -1,10 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from typing import Tuple, Union, List
 
 from flask import Flask, render_template, request, redirect, url_for
 from flask import g
 
-from films_repository import get_films_to_compare, save_comparison
+from Film import Film
+from films_repository import get_films_to_compare, save_comparison, get_rating
 
 app = Flask(__name__)
 
@@ -19,13 +21,14 @@ def close_connection(exception):
 
 @app.route('/')
 def vs():
-    films = get_films_to_compare()
+    films: Tuple[Film, Film] = get_films_to_compare()
     return render_template('vs.html', films=films)
 
 
 @app.route('/rating')
 def rating():
-    return render_template('rating.html')
+    films: List[Film] = get_rating()
+    return render_template('rating.html', films=films)
 
 
 @app.route('/comparisons', methods=['POST'])
