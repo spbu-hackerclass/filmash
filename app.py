@@ -23,6 +23,11 @@ def vs():
     return render_template('vs.html', films=films)
 
 
+@app.route('/rating')
+def rating():
+    return render_template('rating.html')
+
+
 @app.route('/comparisons', methods=['POST'])
 def add_comparison():
     win_id = int(request.form.get('win'))
