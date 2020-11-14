@@ -25,3 +25,7 @@ def get_film(id: int) -> Film:
 
 def update_film_rating(id: int, win: int, lose: int):
     write_db('UPDATE films SET win = ?, lose = ?, rating = ? WHERE id = ?', [win, lose, win / (win + lose), id])
+
+
+def get_rating(n: int = 100) -> List[Film]:
+    return query_db('SELECT * FROM films  ORDER BY rating DESC LIMIT ?', [n])

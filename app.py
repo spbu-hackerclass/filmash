@@ -4,7 +4,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask import g
 
-from films_repository import get_films_to_compare, save_comparison
+from films_repository import get_films_to_compare, save_comparison, get_rating
 
 app = Flask(__name__)
 
@@ -25,7 +25,8 @@ def vs():
 
 @app.route('/rating')
 def rating():
-    return render_template('rating.html')
+    films = get_rating()
+    return render_template('rating.html', films=films)
 
 
 @app.route('/comparisons', methods=['POST'])

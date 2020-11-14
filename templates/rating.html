@@ -31,6 +31,10 @@
 
 <div class="container-fluid">
     Rating
+
+    {% for film in films %}
+        <p>{{ film.filmname }}</p>
+    {% endfor %}
 </div>
 </body>
 </html>
