@@ -38,7 +38,7 @@
                         <span class="badge badge-primary">#{{ index }}</span>
                     </h5>
 
-                    <h4><span class="badge badge-pill badge-primary">{{ film.rating }}</span></h4>
+                    <h4><span class="badge badge-pill badge-primary">{{ '{:0.2f}'.format(film.rating*10) }}</span></h4>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{ film.filmname }}</h5>
