@@ -29,12 +29,21 @@
     </div>
 </nav>
 
-<div class="container-fluid">
-    Rating
-
-    {% for film in films %}
-        <p>{{ film.filmname }}</p>
-    {% endfor %}
+<div class="container">
+    <div class="row justify-content-center">
+        {% for index, film in enumerated_films %}
+            <div class="card my-3 mx-3" style="width: 20rem;">
+                <img class="card-img" src="static/posters/{{ film.posterfile }}" alt="Film poster">
+                <div class="card-img-overlay">
+                    <h5 class="card-title"><span class="badge badge-primary">#{{ index }}</span></h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ film.filmname }}</h5>
+                    <p class="card-text">{{ film.filmdesc[:300] }}...</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 </body>
 </html>
