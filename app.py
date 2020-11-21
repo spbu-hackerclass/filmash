@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from typing import Tuple, Union, List
+from typing import Tuple, List
 
 from flask import Flask, render_template, request, redirect, url_for
 from flask import g
